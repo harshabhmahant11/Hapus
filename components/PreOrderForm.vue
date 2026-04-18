@@ -6,7 +6,7 @@
           <span class="form-badge">🥭 Limited Season — Book Now!</span>
           <h2 class="form-title">Pre-Order Your <span class="gold">Alphonso Mangoes</span></h2>
           <p class="form-subtitle">
-            Fill in your details below and we'll confirm your order within 24 hours. Pay only after confirmation.
+            Fill in your details below and we'll confirm your order within 24 hours. Pay only after delivery.
           </p>
         </div>
 

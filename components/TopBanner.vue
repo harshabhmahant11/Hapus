@@ -2,7 +2,7 @@
   <div class="top-banner">
     <div class="banner-track">
       <span v-for="i in 3" :key="i" class="banner-content">
-        🥭 100% Carbide Free Alphonso Mangoes &nbsp;|&nbsp; 🌿 Naturally Ripened &nbsp;|&nbsp; 🚚 Delivered in 5-7 Working Days &nbsp;|&nbsp; 📦 Pre-Order Now — Limited Stock &nbsp;|&nbsp;
+        🥭 100% Carbide Free Alphonso Mangoes &nbsp;|&nbsp; 🌿 Naturally Ripened &nbsp;|&nbsp; 🚚 Delivered in 3-5 Days &nbsp;|&nbsp; 📦 Pre-Order Now — Limited Stock &nbsp;|&nbsp;
       </span>
     </div>
   </div>
