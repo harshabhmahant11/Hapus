@@ -38,7 +38,7 @@ export const products = [
     badge: 'Mega Saver',
     badgeClass: 'badge-saver',
     featured: false,
-    image: '/images/premiumPeti.png',
+    image: '/images/premiumPeti.PNG',
     features: ['Bulk Pack', '30% Off', 'Free Shipping']
   },
   {
