@@ -66,7 +66,7 @@ export const products = [
     badge: 'Try First',
     badgeClass: 'badge-trial',
     featured: false,
-    image: '/images/mango_trial.webp',
+    image: '/images/trailimg.jpeg',
     features: ['Starter Pack','Best Value']
   },
     {
