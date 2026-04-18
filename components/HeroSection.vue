@@ -14,8 +14,8 @@
         </div>
 
         <h1 class="hero-title fade-in delay-1">
-          The King of
-          <span class="highlight">Mangoes</span>
+          The King of Mangoes,
+          <span class="highlight">Alphonso</span>
           Straight from
           <span class="highlight-alt">Ratnagiri</span>
         </h1>
