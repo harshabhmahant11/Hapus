@@ -10,7 +10,6 @@
         <a href="#why" @click="menuOpen = false">Why Hapus</a>
         <a href="#products" @click="menuOpen = false">Mangoes</a>
         <a href="#how-it-works" @click="menuOpen = false">How It Works</a>
-        <a href="#testimonials" @click="menuOpen = false">Reviews</a>
         <a href="#pre-order" class="nav-cta" @click="menuOpen = false">Pre-Order Now</a>
       </div>
 
@@ -29,6 +28,14 @@ onMounted(() => {
   window.addEventListener('scroll', () => {
     isScrolled.value = window.scrollY > 50
   })
+})
+
+watch(menuOpen, (open) => {
+  document.body.style.overflow = open ? 'hidden' : ''
+})
+
+onBeforeUnmount(() => {
+  document.body.style.overflow = ''
 })
 </script>
 
@@ -162,17 +169,46 @@ onMounted(() => {
     top: 70px;
     left: 0;
     right: 0;
+    height: calc(100vh - 70px);
     background: var(--bg-warm);
     flex-direction: column;
-    padding: 2rem;
-    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    gap: 1rem;
     transform: translateY(-120%);
-    transition: transform 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     border-bottom: 2px solid var(--mango-light);
+    overflow-y: hidden;
+    z-index: 1001;
   }
 
   .nav-links.open {
     transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    overflow-y: auto;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-radius: 14px;
+  }
+
+  .nav-links a:hover {
+    background: rgba(245, 158, 11, 0.08);
+  }
+
+  .nav-cta {
+    width: 100%;
+  }
+
+  .nav-inner {
+    gap: 1rem;
   }
 }
 </style>

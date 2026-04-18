@@ -44,7 +44,7 @@
 
       <div class="products-note">
         <span class="note-icon">💡</span>
-        <p>All prices include packaging & handling. Shipping charges calculated at checkout based on your location.</p>
+        <p>All prices include packaging & handling. Shipping charges may be extra based on your location.</p>
       </div>
     </div>
   </section>
@@ -267,9 +267,27 @@ import { products } from '~/config/products'
 @media (max-width: 640px) {
   .products-grid {
     grid-template-columns: 1fr;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .product-card {
+    border-radius: 18px;
+  }
+
+  .product-features {
+    gap: 0.5rem;
+  }
+
+  .product-pricing {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .product-cta {
+    width: 100%;
   }
 }
 </style>

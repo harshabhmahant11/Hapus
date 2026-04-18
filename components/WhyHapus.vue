@@ -1,5 +1,5 @@
 <template>
-  <section id="why" class="why-section section-padding">
+  <section id="why" class="why-section">
     <div class="container">
       <h2 class="section-title">Why Choose <span class="gold">Hapus</span>?</h2>
       <p class="section-subtitle">
@@ -13,13 +13,6 @@
           </div>
           <h3 class="feature-title">{{ feature.title }}</h3>
           <p class="feature-desc">{{ feature.desc }}</p>
-        </div>
-      </div>
-
-      <div class="trust-bar">
-        <div class="trust-item" v-for="(item, i) in trustItems" :key="i">
-          <span class="trust-icon">{{ item.icon }}</span>
-          <span class="trust-text">{{ item.text }}</span>
         </div>
       </div>
     </div>
@@ -66,13 +59,6 @@ const features = [
   }
 ]
 
-const trustItems = [
-  { icon: '✅', text: 'FSSAI Certified' },
-  { icon: '🏷️', text: 'GI Tagged Alphonso' },
-  { icon: '🔬', text: 'Lab Tested' },
-  { icon: '🚚', text: 'Pan-India Delivery' },
-  { icon: '💯', text: '100% Refund Guarantee' }
-]
 </script>
 
 <style scoped>
@@ -133,30 +119,6 @@ const trustItems = [
   color: var(--text-muted);
 }
 
-.trust-bar {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, var(--mango-cream), #FEF9E7);
-  border-radius: 16px;
-  border: 1px solid var(--mango-light);
-}
-
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--text-dark);
-}
-
-.trust-icon {
-  font-size: 1.25rem;
-}
-
 @media (max-width: 968px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -166,10 +128,6 @@ const trustItems = [
 @media (max-width: 640px) {
   .features-grid {
     grid-template-columns: 1fr;
-  }
-
-  .trust-bar {
-    gap: 1rem;
   }
 }
 </style>

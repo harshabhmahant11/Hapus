@@ -6,7 +6,6 @@
     <WhyHapus />
     <ProductCards />
     <HowItWorks />
-    <Testimonials />
     <PreOrderForm />
     <FooterSection />
   </div>

@@ -33,13 +33,13 @@
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-number">48hr</span>
-            <span class="stat-label">Farm to Door</span>
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Happy Families</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-number">5000+</span>
-            <span class="stat-label">Happy Families</span>
+            <span class="stat-number">98%</span>
+            <span class="stat-label">A-Grade Mangoes</span>
           </div>
         </div>
 
@@ -57,7 +57,7 @@
       <div class="hero-visual fade-in delay-2">
         <div class="mango-showcase">
           <img
-            src="https://images.pexels.com/photos/8523867/pexels-photo-8523867.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop"
+            src="/images/mainn.jpg"
             alt="Premium Alphonso Hapus Mangoes from Ratnagiri"
             class="mango-img"
           />
@@ -75,8 +75,8 @@
         </div>
 
         <div class="floating-card card-3">
-          <span class="card-emoji">⭐</span>
-          <span>GI Tagged</span>
+          <span class="card-emoji">👨‍🌾</span>
+          <span>Handpicked</span>
         </div>
       </div>
     </div>
@@ -403,6 +403,7 @@
   .hero-desc {
     margin-left: auto;
     margin-right: auto;
+    max-width: 100%;
   }
 
   .hero-stats {
@@ -413,6 +414,13 @@
   .hero-actions {
     justify-content: center;
     flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    max-width: 320px;
   }
 
   .mango-showcase {
@@ -427,5 +435,91 @@
 
   .card-1 { right: 0%; }
   .card-2 { left: 5%; }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 3rem 0 4rem;
+    min-height: auto;
+  }
+
+  .hero-grid {
+    gap: 2rem;
+  }
+
+  .hero-badge {
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .stat {
+    width: 100%;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .hero-actions {
+    gap: 0.75rem;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    max-width: none;
+  }
+
+  .mango-showcase {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-visual {
+    padding-top: 1rem;
+  }
+
+  .floating-card {
+    display: none;
+  }
+
+  .shape-1 {
+    width: 260px;
+    height: 260px;
+    top: -90px;
+    right: -90px;
+  }
+
+  .shape-2 {
+    width: 220px;
+    height: 220px;
+    bottom: -60px;
+    left: -60px;
+  }
+
+  .shape-3 {
+    width: 140px;
+    height: 140px;
+    top: 55%;
+    left: 38%;
+  }
 }
 </style>

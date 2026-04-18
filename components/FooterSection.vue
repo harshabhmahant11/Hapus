@@ -35,28 +35,17 @@
           <a href="#why">Why Hapus</a>
           <a href="#products">Our Mangoes</a>
           <a href="#how-it-works">How It Works</a>
-          <a href="#testimonials">Reviews</a>
-          <a href="#pre-order">Pre-Order</a>
-        </div>
-
-        <div class="footer-links">
-          <h4>Our Promise</h4>
-          <a href="#">100% Natural</a>
-          <a href="#">Carbide Free</a>
-          <a href="#">Naturally Ripened</a>
-          <a href="#">GI Tagged Origin</a>
-          <a href="#">Refund Guarantee</a>
         </div>
 
         <div class="footer-contact">
           <h4>Get In Touch</h4>
-          <div class="contact-item">
+          <!-- <div class="contact-item">
             <span>📧</span>
-            <a href="mailto:hello@hapusmangoes.com">hello@hapusmangoes.com</a>
-          </div>
+            <a href="mailto:alphonsohapus@gmail.com">alphonsohapus@gmail.com</a>
+          </div> -->
           <div class="contact-item">
             <span>📞</span>
-            <a href="tel:+919876543210">+91 98765 43210</a>
+            <a href="tel:+919763698553">+91 97636 98553</a>
           </div>
           <div class="contact-item">
             <span>📍</span>
