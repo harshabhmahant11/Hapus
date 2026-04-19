@@ -1,5 +1,5 @@
 <template>
-  <section id="products" class="products-section section-padding">
+  <section id="products" class="products-section">
     <div class="container">
       <h2 class="section-title">Choose Your <span class="gold">Mangoes</span></h2>
       <p class="section-subtitle">

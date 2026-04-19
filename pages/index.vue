@@ -3,8 +3,8 @@
     <TopBanner />
     <NavBar />
     <HeroSection />
-    <WhyHapus />
     <ProductCards />
+    <WhyHapus />
     <HowItWorks />
     <PreOrderForm />
     <FooterSection />

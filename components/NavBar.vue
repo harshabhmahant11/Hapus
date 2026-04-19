@@ -7,8 +7,8 @@
       </a>
 
       <div class="nav-links" :class="{ open: menuOpen }">
-        <a href="#why" @click="menuOpen = false">Why Hapus</a>
         <a href="#products" @click="menuOpen = false">Mangoes</a>
+        <a href="#why" @click="menuOpen = false">Why Hapus</a>
         <a href="#how-it-works" @click="menuOpen = false">How It Works</a>
         <a href="#pre-order" class="nav-cta" @click="menuOpen = false">Pre-Order Now</a>
       </div>

@@ -17,6 +17,18 @@ export default defineNuxtConfig({
       ],
       link: [
         {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/images/trialClassic.jpg'
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '48x48',
+          href: '/images/trialClassic.jpg'
+        },
+        {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap'
         }

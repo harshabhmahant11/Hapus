@@ -19,41 +19,13 @@ export const products = [
     origin: 'Ratnagiri & Devgad',
     weight: '12 Mangoes · 180g-200g/piece',
     pieces: '12 pcs, 180-200g',
-    price: 1199,
+    price: 1099,
     mrp: 2000,
     badge: 'Popular',
     badgeClass: 'badge-popular',
     featured: false,
     image: '/images/mango.jpg',
     features: ['Family Pack', 'Natural']
-  },
-  {
-    id: 'family',
-    name: 'Alphonso Family Peti (Premium)',
-    origin: 'Ratnagiri & Devgad',
-    weight: '48 Mangoes · 4 Dozen Box · 200g-240g/piece',
-    pieces: '48 pcs, 200-240g',
-    price: 6999,
-    mrp: 10000,
-    badge: 'Mega Saver',
-    badgeClass: 'badge-saver',
-    featured: false,
-    image: '/images/premiumPeti.PNG',
-    features: ['Bulk Pack', '30% Off', 'Free Shipping']
-  },
-  {
-    id: 'family',
-    name: 'Alphonso Family Peti (Classic)',
-    origin: 'Ratnagiri & Devgad',
-    weight: '48 Mangoes · 4 Dozen Box · 180g-200g/piece',
-    pieces: '48 pcs, 180-200g',
-    price: 4499,
-    mrp: 8000,
-    badge: 'Mega Saver',
-    badgeClass: 'badge-saver',
-    featured: false,
-    image: '/images/peti.webp',
-    features: ['Bulk Pack', '44% Off', 'Free Shipping']
   },
   {
     id: 'trial',
@@ -82,6 +54,34 @@ export const products = [
     featured: false,
     image: '/images/trialClassic.jpg',
     features: ['Starter Pack', 'Best Value']
+  },
+  {
+    id: 'family',
+    name: 'Alphonso Family Peti (Premium)',
+    origin: 'Ratnagiri & Devgad',
+    weight: '48 Mangoes · 4 Dozen Box · 200g-240g/piece',
+    pieces: '48 pcs, 200-240g',
+    price: 6999,
+    mrp: 10000,
+    badge: 'Mega Saver',
+    badgeClass: 'badge-saver',
+    featured: false,
+    image: '/images/premiumPeti.PNG',
+    features: ['Bulk Pack', '30% Off', 'Free Shipping']
+  },
+  {
+    id: 'family',
+    name: 'Alphonso Family Peti (Classic)',
+    origin: 'Ratnagiri & Devgad',
+    weight: '48 Mangoes · 4 Dozen Box · 180g-200g/piece',
+    pieces: '48 pcs, 180-200g',
+    price: 3999,
+    mrp: 8000,
+    badge: 'Mega Saver',
+    badgeClass: 'badge-saver',
+    featured: false,
+    image: '/images/peti.webp',
+    features: ['Bulk Pack', '44% Off', 'Free Shipping']
   }
 ]
 
