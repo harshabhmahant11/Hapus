@@ -131,7 +131,7 @@
               </span>
             </button>
             <p class="form-note">
-              ✅ No payment required now. We'll contact you to confirm availability and arrange payment.
+              ✅ No payment required now. We'll contact you to confirm availability and arrange payment. Shipping charges may be extra based on your location.
             </p>
           </div>
         </form>
