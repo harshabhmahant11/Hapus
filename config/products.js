@@ -13,21 +13,7 @@ export const products = [
     image: '/images/premium-mangoes.PNG',
     features: ['Premium Quality', 'Gift Ready']
   },
-  {
-    id: 'classic',
-    name: 'Alphonso Classic Box',
-    origin: 'Ratnagiri & Devgad',
-    weight: '12 Mangoes · 180g-200g/piece',
-    pieces: '12 pcs, 180-200g',
-    price: 1099,
-    mrp: 2000,
-    badge: 'Popular',
-    badgeClass: 'badge-popular',
-    featured: false,
-    image: '/images/mango.jpg',
-    features: ['Family Pack', 'Natural']
-  },
-  {
+    {
     id: 'trial',
     name: 'Alphonso Trial Pack (Premium)',
     origin: 'Ratnagiri & Devgad',
@@ -41,6 +27,22 @@ export const products = [
     image: '/images/trailimg.jpeg',
     features: ['Starter Pack','Best Value']
   },
+  {
+    id: 'classic',
+    name: 'Alphonso Classic Box',
+    origin: 'Ratnagiri & Devgad',
+    weight: '12 Mangoes · 180g-200g/piece',
+    pieces: '12 pcs, 180-200g',
+    price: 1099,
+    mrp: 2000,
+   badge: 'Sold Out',
+    badgeClass: 'badge-soldout',
+    featured: false,
+    image: '/images/mango.jpg',
+    features: ['Family Pack', 'Natural'],
+    soldOut: true
+  },
+
     {
     id: 'trial',
     name: 'Alphonso Trial Pack (Classic)',
