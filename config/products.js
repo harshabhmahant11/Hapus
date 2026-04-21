@@ -49,11 +49,12 @@ export const products = [
     pieces: '6 pcs, 800-1000g',
     price: 599,
     mrp: 1000,
-    badge: 'Try First',
-    badgeClass: 'badge-trial',
+    badge: 'Sold Out',
+    badgeClass: 'badge-soldout',
     featured: false,
     image: '/images/trialClassic.jpg',
-    features: ['Starter Pack', 'Best Value']
+    features: ['Starter Pack', 'Best Value'],
+    soldOut: true
   },
   // {
   //   id: 'family',

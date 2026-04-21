@@ -54,7 +54,8 @@
                   v-for="p in products"
                   :key="p.id"
                   :value="getProductValue(p)"
-                >{{ getProductLabel(p) }}</option>
+                  :disabled="p.soldOut"
+                >{{ getProductLabel(p) }}{{ p.soldOut ? ' (Sold Out)' : '' }}</option>
               </select>
               <span v-if="errors.product" class="error-text">{{ errors.product }}</span>
             </div>
@@ -123,8 +124,9 @@
 
           <!-- Submit -->
           <div class="form-footer">
-            <button type="submit" class="submit-btn" :disabled="isSubmitting">
-              <span v-if="!isSubmitting">🥭 Confirm Pre-Order</span>
+            <button type="submit" class="submit-btn" :disabled="isSubmitting || isProductSoldOut">
+              <span v-if="isProductSoldOut">Sold Out</span>
+              <span v-else-if="!isSubmitting">🥭 Confirm Pre-Order</span>
               <span v-else class="loading">
                 <span class="spinner"></span>
                 Submitting...
@@ -156,6 +158,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { products, getProductLabel, getProductValue } from '~/config/products'
 
 const GOOGLE_SHEETS_URL = ref('https://script.google.com/macros/s/AKfycbyJdKaOX0ESWVolEAFk6XyWHQwKG4cDMg77f2Sbcqa0-6sbaENQo9eWfeImPLHqZzM9Bw/exec')
@@ -176,6 +179,12 @@ const isSubmitting = ref(false)
 const submitted = ref(false)
 const submittedName = ref('')
 const submittedProduct = ref('')
+
+const isProductSoldOut = computed(() => {
+  if (!form.product) return false
+  const selectedProduct = products.find(p => getProductValue(p) === form.product)
+  return selectedProduct?.soldOut || false
+})
 
 function validate() {
   const e = {}

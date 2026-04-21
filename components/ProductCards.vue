@@ -7,13 +7,16 @@
       </p>
 
       <div class="products-grid">
-        <div v-for="(product, i) in products" :key="i" class="product-card" :class="{ featured: product.featured }">
+        <div v-for="(product, i) in products" :key="i" class="product-card" :class="{ featured: product.featured, 'sold-out': product.soldOut }">
           <div v-if="product.badge" class="product-badge" :class="product.badgeClass">
             {{ product.badge }}
           </div>
 
           <div class="product-image-wrap">
             <img :src="product.image" :alt="product.name" class="product-image" loading="lazy" />
+            <div v-if="product.soldOut" class="sold-out-overlay">
+              <span class="sold-out-text">Sold Out</span>
+            </div>
           </div>
 
           <div class="product-info">
@@ -35,9 +38,12 @@
               </div>
             </div>
 
-            <a href="#pre-order" class="product-cta">
+            <a v-if="!product.soldOut" href="#pre-order" class="product-cta">
               Pre-Order Now →
             </a>
+            <div v-else class="product-cta sold-out-btn">
+              Sold Out
+            </div>
           </div>
         </div>
       </div>
@@ -124,6 +130,11 @@ import { products } from '~/config/products'
   color: white;
 }
 
+.badge-soldout {
+  background: linear-gradient(135deg, #6B7280, #4B5563);
+  color: white;
+}
+
 .product-image-wrap {
   position: relative;
   padding-top: 100%;
@@ -142,6 +153,36 @@ import { products } from '~/config/products'
 
 .product-card:hover .product-image {
   transform: scale(1.05);
+}
+
+.product-card.sold-out {
+  opacity: 0.75;
+}
+
+.sold-out-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.sold-out-text {
+  background: white;
+  color: #6B7280;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.sold-out-btn {
+  background: #D1D5DB !important;
+  color: #6B7280 !important;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .product-info {
