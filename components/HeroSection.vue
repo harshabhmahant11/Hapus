@@ -495,10 +495,35 @@
 
   .hero-visual {
     padding-top: 1rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .floating-card {
-    display: none;
+    font-size: 0.65rem;
+    padding: 0.4rem 0.6rem;
+    position: absolute;
+  }
+
+  .card-1 {
+    top: 8%;
+    right: 5%;
+    animation-delay: 0s;
+    color: var(--leaf-green);
+  }
+
+  .card-2 {
+    bottom: 18%;
+    left: 5%;
+    animation-delay: 1.5s;
+    color: #DC2626;
+  }
+
+  .card-3 {
+    bottom: 8%;
+    right: 5%;
+    animation-delay: 3s;
+    color: var(--mango-deep);
   }
 
   .shape-1 {
