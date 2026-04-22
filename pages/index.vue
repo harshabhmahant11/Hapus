@@ -4,6 +4,7 @@
     <NavBar />
     <HeroSection />
     <ProductCards />
+    <Gallery />
     <WhyHapus />
     <HowItWorks />
     <PreOrderForm />
