@@ -63,6 +63,7 @@ import { products } from '~/config/products'
 <style scoped>
 .products-section {
   background: linear-gradient(180deg, white 0%, var(--mango-cream) 100%);
+  padding-bottom: 15px;
 }
 
 .gold {

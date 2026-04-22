@@ -1,10 +1,10 @@
 <template>
-  <section class="gallery-section section-padding">
+  <section class="gallery-section">
     <div class="container">
       <div class="gallery-header">
         <h2 class="section-title">Our <span class="gold">Alphonso Mangoes</span></h2>
         <p class="section-subtitle">
-          Straight from our orchards in Ratnagiri & Devgad — See the authentic beauty of premium Alphonso mangoes
+         <strong>Original Pictures</strong> — Straight from our orchards in Ratnagiri & Devgad. See the authentic beauty of premium Alphonso mangoes
         </p>
       </div>
 
