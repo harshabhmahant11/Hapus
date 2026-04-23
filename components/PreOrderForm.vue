@@ -138,6 +138,23 @@
           </div>
         </form>
 
+        <!-- Warning Modal -->
+        <Transition name="fade">
+          <div v-if="showModal" class="modal-overlay" @click="showModal = false">
+            <div class="modal-content" @click.stop>
+              <div class="modal-header">
+                <h3>⚠️ Product Unavailable</h3>
+              </div>
+              <div class="modal-body">
+                <p>This category is sold out in Hyderabad. Please select other options.</p>
+              </div>
+              <div class="modal-footer">
+                <button @click="showModal = false" class="modal-btn">OK</button>
+              </div>
+            </div>
+          </div>
+        </Transition>
+
         <!-- Success Message -->
         <Transition name="fade">
           <div v-if="submitted" class="success-overlay">
@@ -158,10 +175,17 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { products, getProductLabel, getProductValue } from '~/config/products'
+import { computed, watch } from 'vue'
+import { products as originalProducts, getProductLabel, getProductValue } from '~/config/products'
 
 const GOOGLE_SHEETS_URL = ref('https://script.google.com/macros/s/AKfycbyJdKaOX0ESWVolEAFk6XyWHQwKG4cDMg77f2Sbcqa0-6sbaENQo9eWfeImPLHqZzM9Bw/exec')
+
+const products = computed(() => {
+  return originalProducts.map(p => ({
+    ...p,
+    soldOut: p.soldOut || (form.city.toLowerCase() === 'hyderabad' && p.price === 849)
+  }))
+})
 
 const form = reactive({
   name: '',
@@ -179,10 +203,21 @@ const isSubmitting = ref(false)
 const submitted = ref(false)
 const submittedName = ref('')
 const submittedProduct = ref('')
+const showModal = ref(false)
+
+watch(() => form.city, (newCity) => {
+  if (newCity.toLowerCase() === 'hyderabad') {
+    const selectedProduct = originalProducts.find(p => getProductValue(p) === form.product)
+    if (selectedProduct && selectedProduct.price === 849) {
+      showModal.value = true
+      form.product = ''
+    }
+  }
+})
 
 const isProductSoldOut = computed(() => {
   if (!form.product) return false
-  const selectedProduct = products.find(p => getProductValue(p) === form.product)
+  const selectedProduct = products.value.find(p => getProductValue(p) === form.product)
   return selectedProduct?.soldOut || false
 })
 
@@ -510,5 +545,72 @@ select {
   .form-group.full-width {
     grid-column: 1;
   }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.modal-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-btn {
+  background: var(--mango-gold);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal-btn:hover {
+  background: var(--mango-deep);
+}
+
+/* Fade transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
