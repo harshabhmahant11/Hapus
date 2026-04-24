@@ -11,7 +11,8 @@ export const products = [
     badgeClass: 'badge-best',
     featured: false,
     image: '/images/premium-mangoes.PNG',
-    features: ['Premium Quality', 'Gift Ready']
+    features: ['Premium Quality', 'Gift Ready'],
+    city: ['Hyderabad', 'Bengaluru']
   },
     {
     id: 'trial',
@@ -25,9 +26,10 @@ export const products = [
     badgeClass: 'badge-trial',
     featured: false,
     image: '/images/trailimg.jpeg',
-    features: ['Starter Pack','Best Value']
+    features: ['Starter Pack','Best Value'],
+    city: ['Bengaluru']
   },
-  {
+    {
     id: 'classic',
     name: 'Alphonso Classic Box',
     origin: 'Ratnagiri & Devgad',
@@ -35,14 +37,16 @@ export const products = [
     pieces: '12 pcs, 180-200g',
     price: 1099,
     mrp: 2000,
-   badge: 'Sold Out',
+    // badge: 'Popular',
+    // badgeClass: 'badge-popular',
+    badge: 'Sold Out',
     badgeClass: 'badge-soldout',
     featured: false,
     image: '/images/mango.jpg',
     features: ['Family Pack', 'Natural'],
-    soldOut: true
+    soldOut: true,
+    city: ['Bengaluru']
   },
-
     {
     id: 'trial',
     name: 'Alphonso Trial Pack (Classic)',
@@ -56,7 +60,8 @@ export const products = [
     featured: false,
     image: '/images/trialClassic.jpg',
     features: ['Starter Pack', 'Best Value'],
-    soldOut: true
+    soldOut: true,
+    city: ['Bengaluru']
   },
   // {
   //   id: 'family',

@@ -40,6 +40,22 @@
               <span v-if="errors.phone" class="error-text">{{ errors.phone }}</span>
             </div>
 
+            <!-- City -->
+            <div class="form-group full-width">
+              <label for="city">City <span class="required">*</span></label>
+              <select
+                id="city"
+                v-model="form.city"
+                required
+                :class="{ error: errors.city }"
+              >
+                <option value="" disabled>Select your city...</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="Hyderabad">Hyderabad</option>
+              </select>
+              <span v-if="errors.city" class="error-text">{{ errors.city }}</span>
+            </div>
+
             <!-- Product Selection -->
             <div class="form-group full-width">
               <label for="product">Select Mango Box <span class="required">*</span></label>
@@ -47,11 +63,12 @@
                 id="product"
                 v-model="form.product"
                 required
+                :disabled="!form.city"
                 :class="{ error: errors.product }"
               >
                 <option value="" disabled>Choose your preferred box...</option>
                 <option
-                  v-for="p in products"
+                  v-for="p in availableProducts"
                   :key="p.id"
                   :value="getProductValue(p)"
                   :disabled="p.soldOut"
@@ -63,7 +80,7 @@
             <!-- Quantity -->
             <div class="form-group full-width">
               <label for="quantity">Number of Boxes <span class="required">*</span></label>
-              <select id="quantity" v-model="form.quantity" required>
+              <select id="quantity" v-model="form.quantity" required :disabled="!form.city">
                 <option v-for="n in 10" :key="n" :value="n">{{ n }} {{ n === 1 ? 'Box' : 'Boxes' }}</option>
               </select>
             </div>
@@ -77,25 +94,13 @@
                 placeholder="Full delivery address with landmark"
                 rows="3"
                 required
+                :disabled="!form.city"
                 :class="{ error: errors.address }"
               ></textarea>
               <span v-if="errors.address" class="error-text">{{ errors.address }}</span>
             </div>
 
-            <!-- City & Pincode -->
-            <div class="form-group">
-              <label for="city">City <span class="required">*</span></label>
-              <input
-                id="city"
-                v-model="form.city"
-                type="text"
-                placeholder="e.g., Mumbai, Pune, Delhi"
-                required
-                :class="{ error: errors.city }"
-              />
-              <span v-if="errors.city" class="error-text">{{ errors.city }}</span>
-            </div>
-
+            <!-- Pincode -->
             <div class="form-group">
               <label for="pincode">Delivery Pincode <span class="required">*</span></label>
               <input
@@ -105,6 +110,7 @@
                 placeholder="e.g., 400001"
                 required
                 maxlength="6"
+                :disabled="!form.city"
                 :class="{ error: errors.pincode }"
               />
               <span v-if="errors.pincode" class="error-text">{{ errors.pincode }}</span>
@@ -118,6 +124,7 @@
                 v-model="form.notes"
                 placeholder="e.g., Preferred delivery date, gift message, ripeness preference..."
                 rows="2"
+                :disabled="!form.city"
               ></textarea>
             </div>
           </div>
@@ -137,23 +144,6 @@
             </p>
           </div>
         </form>
-
-        <!-- Warning Modal -->
-        <Transition name="fade">
-          <div v-if="showModal" class="modal-overlay" @click="showModal = false">
-            <div class="modal-content" @click.stop>
-              <div class="modal-header">
-                <h3>⚠️ Product Unavailable</h3>
-              </div>
-              <div class="modal-body">
-                <p>This category is sold out in Hyderabad. Please select other options.</p>
-              </div>
-              <div class="modal-footer">
-                <button @click="showModal = false" class="modal-btn">OK</button>
-              </div>
-            </div>
-          </div>
-        </Transition>
 
         <!-- Success Message -->
         <Transition name="fade">
@@ -180,13 +170,6 @@ import { products as originalProducts, getProductLabel, getProductValue } from '
 
 const GOOGLE_SHEETS_URL = ref('https://script.google.com/macros/s/AKfycbyJdKaOX0ESWVolEAFk6XyWHQwKG4cDMg77f2Sbcqa0-6sbaENQo9eWfeImPLHqZzM9Bw/exec')
 
-const products = computed(() => {
-  return originalProducts.map(p => ({
-    ...p,
-    soldOut: p.soldOut || (form.city.toLowerCase() === 'hyderabad' && p.price === 849)
-  }))
-})
-
 const form = reactive({
   name: '',
   phone: '',
@@ -198,26 +181,32 @@ const form = reactive({
   notes: ''
 })
 
+const availableProducts = computed(() => {
+  if (!form.city) return []
+  return originalProducts.filter(p => p.city.includes(form.city))
+})
+
 const errors = reactive({})
 const isSubmitting = ref(false)
 const submitted = ref(false)
 const submittedName = ref('')
 const submittedProduct = ref('')
-const showModal = ref(false)
 
-watch(() => form.city, (newCity) => {
-  if (newCity.toLowerCase() === 'hyderabad') {
-    const selectedProduct = originalProducts.find(p => getProductValue(p) === form.product)
-    if (selectedProduct && selectedProduct.price === 849) {
-      showModal.value = true
-      form.product = ''
+watch(() => form.city, (newCity, oldCity) => {
+  if (oldCity && newCity !== oldCity) {
+    // Reset product if it's not available in the new city
+    if (form.product) {
+      const selectedProduct = availableProducts.value.find(p => getProductValue(p) === form.product)
+      if (!selectedProduct) {
+        form.product = ''
+      }
     }
   }
 })
 
 const isProductSoldOut = computed(() => {
   if (!form.product) return false
-  const selectedProduct = products.value.find(p => getProductValue(p) === form.product)
+  const selectedProduct = availableProducts.value.find(p => getProductValue(p) === form.product)
   return selectedProduct?.soldOut || false
 })
 
@@ -410,13 +399,11 @@ textarea {
   min-height: 60px;
 }
 
-select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2357534E' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
+input:disabled,
+textarea:disabled,
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .form-footer {
