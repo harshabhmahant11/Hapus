@@ -5,13 +5,13 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Hapus - Premium Alphonso Mangoes | Pre-Order Now',
+      title: 'Hapus - Premium Alphonso Mangoes | Order Now',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
-          content: 'Pre-order premium Alphonso Hapus mangoes from Ratnagiri & Devgad. 100% natural, chemical-free, naturally ripened. Farm fresh to your doorstep.'
+          content: 'Order premium Alphonso Hapus mangoes from Ratnagiri & Devgad. 100% natural, chemical-free, naturally ripened. Farm fresh to your doorstep.'
         },
         { name: 'theme-color', content: '#F59E0B' }
       ],

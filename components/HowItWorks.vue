@@ -23,8 +23,8 @@
 const steps = [
   {
     icon: '📝',
-    title: 'Place Your Pre-Order',
-    desc: 'Select your preferred box size and fill in the pre-order form. Secure your mangoes before the season rush.'
+    title: 'Place Your Order',
+    desc: 'Select your preferred box size and fill in the order form. Secure your mangoes before the season rush.'
   },
   {
     icon: '👨‍🌾',

@@ -4,7 +4,7 @@
       <div class="form-wrapper">
         <div class="form-header">
           <span class="form-badge">🥭 Limited Season — Book Now!</span>
-          <h2 class="form-title">Pre-Order Your <span class="gold">Alphonso Mangoes</span></h2>
+          <h2 class="form-title">Order Your <span class="gold">Alphonso Mangoes</span></h2>
           <p class="form-subtitle">
             Fill in your details below and we'll confirm your order within 24 hours. Pay only after delivery.
           </p>
@@ -114,6 +114,7 @@
                 :class="{ error: errors.pincode }"
               />
               <span v-if="errors.pincode" class="error-text">{{ errors.pincode }}</span>
+              <p class="pincode-note"><strong>Delivery charges may be extra based on your location</strong></p>
             </div>
 
             <!-- Notes -->
@@ -133,7 +134,7 @@
           <div class="form-footer">
             <button type="submit" class="submit-btn" :disabled="isSubmitting || isProductSoldOut">
               <span v-if="isProductSoldOut">Sold Out</span>
-              <span v-else-if="!isSubmitting">🥭 Confirm Pre-Order</span>
+              <span v-else-if="!isSubmitting">🥭 Confirm Order</span>
               <span v-else class="loading">
                 <span class="spinner"></span>
                 Submitting...
@@ -150,9 +151,9 @@
           <div v-if="submitted" class="success-overlay">
             <div class="success-card">
               <div class="success-icon">🎉</div>
-              <h3>Pre-Order Received!</h3>
+              <h3>Order Received!</h3>
               <p>
-                Thank you, <strong>{{ submittedName }}</strong>! We've received your pre-order for <strong>{{ submittedProduct }}</strong>.
+                Thank you, <strong>{{ submittedName }}</strong>! We've received your order for <strong>{{ submittedProduct }}</strong>.
                 Our team will contact you within 24 hours to confirm availability and arrange delivery.
               </p>
               <button @click="resetForm" class="success-btn">Place Another Order</button>
@@ -392,6 +393,11 @@ textarea.error {
   color: #DC2626;
   margin-top: 0.25rem;
   font-weight: 500;
+}
+
+.pincode-note {
+  font-size: 0.75rem;
+  padding-left:1rem;
 }
 
 textarea {

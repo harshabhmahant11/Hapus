@@ -14,6 +14,6 @@
 
 <script setup>
 useHead({
-  title: 'Hapus - Premium Alphonso Mangoes | Pre-Order Now'
+  title: 'Hapus - Premium Alphonso Mangoes | Order Now'
 })
 </script>

@@ -83,12 +83,10 @@ const features = [
   border-radius: 20px;
   padding: 2rem;
   transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-  border-color: rgba(245, 158, 11, 0.2);
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .feature-icon-wrap {
@@ -117,6 +115,11 @@ const features = [
   font-size: 0.9375rem;
   line-height: 1.7;
   color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 @media (max-width: 968px) {
@@ -127,7 +130,24 @@ const features = [
 
 @media (max-width: 640px) {
   .features-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+  }
+
+  .feature-title {
+    font-size: 1.0625rem;
+  }
+
+  .feature-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
   }
 }
 </style>

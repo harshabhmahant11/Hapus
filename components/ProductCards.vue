@@ -32,14 +32,16 @@
 
             <div class="product-pricing">
               <div class="price-current">₹{{ product.price.toLocaleString('en-IN') }}</div>
-              <div v-if="product.mrp" class="price-mrp">₹{{ product.mrp.toLocaleString('en-IN') }}</div>
-              <div v-if="product.mrp" class="price-discount">
-                {{ Math.round(((product.mrp - product.price) / product.mrp) * 100) }}% OFF
+              <div class="price-secondary" v-if="product.mrp">
+                <div class="price-mrp">₹{{ product.mrp.toLocaleString('en-IN') }}</div>
+                <div class="price-discount">
+                  {{ Math.round(((product.mrp - product.price) / product.mrp) * 100) }}% OFF
+                </div>
               </div>
             </div>
 
             <a v-if="!product.soldOut" href="#pre-order" class="product-cta">
-              Pre-Order Now →
+              Order Now →
             </a>
             <div v-else class="product-cta sold-out-btn">
               Sold Out
@@ -247,10 +249,19 @@ import { products } from '~/config/products'
   color: var(--text-dark);
 }
 
+.price-secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .price-mrp {
   font-size: 0.9375rem;
   color: var(--text-light);
-  text-decoration: line-through;
+  text-decoration: line-through solid currentColor;
+  text-decoration-thickness: 1px;
+  text-decoration-skip-ink: none;
 }
 
 .price-discount {
@@ -308,7 +319,7 @@ import { products } from '~/config/products'
 
 @media (max-width: 640px) {
   .products-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -318,14 +329,31 @@ import { products } from '~/config/products'
     border-radius: 18px;
   }
 
+  .product-origin {
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+
   .product-features {
     gap: 0.5rem;
+  }
+
+  .product-feat {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.5rem;
   }
 
   .product-pricing {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
+  }
+
+  .price-secondary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
   }
 
   .product-cta {

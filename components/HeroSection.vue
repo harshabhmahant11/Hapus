@@ -10,7 +10,7 @@
       <div class="hero-content">
         <div class="hero-badge fade-in">
           <span class="badge-dot"></span>
-          Pre-Orders Open for 2026 Season
+          Orders Open for 2026 Season
         </div>
 
         <h1 class="hero-title fade-in delay-1">
@@ -45,7 +45,7 @@
 
         <div class="hero-actions fade-in delay-4">
           <a href="#pre-order" class="btn-primary">
-            🥭 Pre-Order Now
+            🥭 Order Now
             <span class="btn-arrow">→</span>
           </a>
           <a href="#products" class="btn-secondary">
@@ -464,15 +464,16 @@
   }
 
   .hero-stats {
-    flex-direction: column;
-    align-items: stretch;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 0.75rem;
     width: 100%;
     padding: 1rem;
   }
 
   .stat {
-    width: 100%;
+    width: auto;
   }
 
   .stat-divider {
@@ -486,6 +487,7 @@
   .hero-actions .btn-primary,
   .hero-actions .btn-secondary {
     max-width: none;
+    justify-content: center;
   }
 
   .mango-showcase {
