@@ -26,7 +26,7 @@
 import { computed } from 'vue'
 
 // Configuration - Easy to change later
-const phoneNumber = '+917972770968'
+const phoneNumber = '+918431424411'
 const message = 'Hi, I want to order Alphonso mangoes'
 const tooltip = 'Chat with us on WhatsApp'
 
