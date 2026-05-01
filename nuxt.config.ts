@@ -20,13 +20,13 @@ export default defineNuxtConfig({
           rel: 'icon',
           type: 'image/png',
           sizes: '32x32',
-          href: '/images/trialClassic.jpg'
+          href: '/images/favicon.PNG'
         },
         {
           rel: 'icon',
           type: 'image/png',
           sizes: '48x48',
-          href: '/images/trialClassic.jpg'
+          href: '/images/favicon.PNG'
         },
         {
           rel: 'stylesheet',
