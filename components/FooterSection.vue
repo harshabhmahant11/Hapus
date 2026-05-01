@@ -4,8 +4,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <span>🥭</span>
-            <span class="logo-text">Hapus</span>
+            <img src="/images/Logo2.PNG" alt="Hapus" class="footer-logo-image" />
+            <!-- <span class="logo-text">Hapus</span> -->
           </div>
           <p class="footer-desc">
             Bringing the authentic taste of Ratnagiri & Devgad Alphonso mangoes straight to your doorstep. 
@@ -45,7 +45,7 @@
           </div> -->
           <div class="contact-item">
             <span>📞</span>
-            <a href="tel:+919763698553">+91 97636 98553</a>
+            <a href="tel:+918431424411">+91 84314 24411</a>
           </div>
           <div class="contact-item">
             <span>📍</span>
@@ -83,6 +83,13 @@
   gap: 0.5rem;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+}
+
+.footer-logo-image {
+  width: 190px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 .logo-text {

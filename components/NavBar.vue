@@ -2,8 +2,8 @@
   <nav class="navbar" :class="{ scrolled: isScrolled }">
     <div class="container nav-inner">
       <a href="#" class="logo">
-        <span class="logo-icon">🥭</span>
-        <span class="logo-text">Hapus</span>
+        <img src="/images/Logo2.PNG" alt="Fresh Farm Fruits" class="logo-image" />
+        <!-- <span class="logo-text">Fresh Farm Fruits</span> -->
       </a>
 
       <div class="nav-links" :class="{ open: menuOpen }">
@@ -70,15 +70,24 @@ onBeforeUnmount(() => {
   gap: 0.5rem;
 }
 
-.logo-icon {
-  font-size: 1.75rem;
+.logo-image {
+  width: 190px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .logo-text {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: var(--earth-brown);
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #8B4513, #D4A574, #8B4513);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  filter: drop-shadow(0 1px 3px rgba(212, 165, 116, 0.15));
 }
 
 .nav-links {
